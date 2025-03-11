@@ -1,0 +1,583 @@
+body {
+    overflow-x: hidden;
+    box-sizing: border-box;
+    font-family: "ヒラギノ角ゴ Pro", "游ゴシック", "Noto Sans JP", sans-serif;
+}
+/*ボタン*/
+.menu-btn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    height: 100px;/*按钮的高度*/
+    width: 100px;/*按钮的宽度*/
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background-color: #ff2a2a;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 2px;/*按钮中间白线的宽度*/
+    width: 50px;/*按钮中间白线的长度*/
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+.menu-btn span:before {
+    bottom: 15px;/*白线间隔*/
+}
+.menu-btn span:after {
+    top: 15px;/*白线间隔*/
+}
+#menu-btn-check:checked ~ .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);/*中间一条变成透明*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);/*与after配对使用，组成X*/
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);/*与before配对使用，组成X*/
+}
+/*menu部分*/
+.menu-content {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    background-color: #ff2a2a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.menu-content img {
+    max-width: 100px;
+    align-self: flex-start;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+.menu-content ul,
+.menu-content button {
+    text-align: center;
+}
+.menu-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.menu-content li {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+    text-shadow: 0.3px 0.3px 0.3px rgba(255, 255, 255, 0.8);
+}
+/*用伪元素来实现按钮右边跟下边的边线*/
+.menu-content button {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    padding: 15px 46.5px;
+    border: #ffffff 1px solid;
+    margin-top: 40px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.menu-content button::after {
+    content: "";
+    position: absolute;
+    width: 100%; /* 让边框和 button 一样大 */
+    height: 100%;
+    right: -5px; /* 让它向右偏移 */
+    bottom: -5px; /* 让它向下偏移 */
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    pointer-events: none; /* 确保不会影响点击 */
+}
+/*按钮颜色渐变*/
+.menu-content button:hover {
+    background-color: #ffffff;
+    color: #ff2a2a;
+    transition: all 0.3s ease-in-out;
+}
+/*控制菜单出现的方向下面例子是淡入变化*/
+.menu-content {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    background-color: #ff2a2a;
+    opacity: 0;
+    visibility: hidden;/*从后面淡入的变化出现*/
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+#menu-btn-check:checked ~ .menu-content {
+    opacity: 1;
+    visibility: visible;
+}
+/*调节logo大小，无关紧要的*/
+.logo-r {
+    max-width: 100px;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+/*main*/
+/*mainvisual*/
+.mainvisual {
+    max-width: 100vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/*mainvisual-message*/
+.mainvisual-message {
+    position: absolute;
+    z-index: 11;
+    left: 10%;
+    text-align: center;
+}
+.mainvisual-message p {
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 1.6;
+    color: #333;
+    text-shadow: 2px 2px 5px #fff;
+    text-align: left;
+    letter-spacing: 1px;
+}
+.mainvisual-btn p {
+    font-size: 24px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    padding: 15px 128px;
+    background-color: #ff2a2a;
+    color: #fff;
+    border-radius: 10px;
+    text-shadow: none;
+    box-shadow: 0px 5px 1px #7A051C;
+    transition: all 0.3s ease-in-out;
+    margin-top: 40px;
+}
+.mainvisual-btn p:hover {
+    transform: scale(1.05);/*稍微变大*/
+    opacity: 0.8;/*变为半透明.0-1是由透明到不透明*/
+    transition: all 0.3s ease-in-out;
+}
+/*mainvisual-swiper*/
+.swiper {
+    width: 70vw;
+    margin: 0 !important;
+    position: relative;
+    z-index: 10;
+    aspect-ratio: 16 / 9;/*统一图片的比例（当图片大小不一的情况下）*/
+    transform: translateX(20%);
+}
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+/*元素边缘虚化*/
+.swiper-wrapper::after {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    box-shadow: inset 0px 0px 30px 30px #fff;/*数字调节的范围 左右 上下 阴影厚度 阴影宽度*/
+    content: " ";
+}
+/*first-container*/
+.first-container {
+    max-width: 100vw;
+    width: 100%;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-header {
+    text-align: center;
+}
+.container-header h2 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+}
+/*FC-messages*/
+.FC-messages {
+    background-color: #ff2a2a;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin-top: 80px;
+    max-width: 100vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.FC-message-top {
+    border-radius: 0 15px 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: #ffffff;
+    padding: 70px 161px 70px 162px;
+    align-self: flex-start;
+}
+.FC-message-bottom {
+    border-radius: 15px 0 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: #ffffff;
+    padding: 70px 152px 70px 152px;
+    align-self: flex-end;
+}
+.FC-message h3 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff2a2a;
+    line-height: 1.5;
+}
+.FC-message-top img {
+    max-width: 87px;
+}
+.FC-message-bottom img {
+    max-width: 51px;
+}
+/*second-container*/
+.second-container {
+    margin-top: 120px;
+}
+.student-photo img {
+    max-width: 120px;
+    background-color: #CCCCCC;
+    border-radius: 50%;
+}
+.student-photo {
+    text-align: center;
+}
+.SC-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.student-word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.student-word p {
+    background-color: #e9f1fb;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+    max-width: 516px;
+    padding: 20px;
+    border-radius: 15px;
+}
+.student-word img {
+    transform: translateY(45%);
+}
+.SC-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    max-width: 62vw;
+    width: 100%;
+    margin: 80px auto 0;
+}
+.SC-messages-mid {
+    align-self: flex-end;
+}
+.SC-messages-top,
+.SC-messages-bottom {
+    align-self: flex-start;
+}
+/*third-container*/
+.third-container {
+    margin-top: 120px;
+    background: url(img/bg.gif);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    animation: fall 100s infinite linear;
+}
+@keyframes fall {
+    from {
+        background-position: 0 0;/*此处为上下对应！from-to 前后两个数字分别代表X轴Y轴*/
+    }
+    to {
+        background-position: 700vw 700vw;/*X轴0~700 Y轴0~700*/
+    }
+}
+.TC-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+.TC-messages-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.TC-text {
+    max-width: 410px;
+    text-align: center;
+    background-color: #fff;
+    padding: 60px;
+    border-radius: 15px;
+}
+.TC-text p {
+    text-align: left;
+    max-width: 290px;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    margin-top: 30px;
+}
+.TC-text h3 {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+}
+.TC-text h4 {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: bold;
+}
+.TC-messages-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+/*main-footer*/
+.main-footer {
+    margin: 120px auto 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main-footer h2 {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+}
+.main-footer h3 {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+}
+.main-footer button {
+    background-color: #ff2a2a;
+    color: #fff;
+    padding: 12px 293px;
+    border-radius: 50px;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+    margin-top: 55px;
+    border: #ff2a2a 3px solid;
+    transition: all 0.3s ease-in-out;
+}
+.main-footer button:hover {
+    background-color: #fff;
+    color: #ff2a2a;
+    transition: all 0.3s ease-in-out;
+}
+/*footer*/
+footer {
+    background-color: #e8e8e8;
+    max-width: 100vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer-top {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    max-width: 60vw;
+    width: 100%;
+    gap: 40px;
+}
+footer p {
+    font-size: 10px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.footer-message {
+    max-width: 162px;
+    width: 100%;
+}
+.footer-message h4 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+    color: #333;
+}
+.footer-message ul {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+    margin-left: 10px;
+}
+.student-word img:nth-of-type(2) {
+    display: none;
+}
+.message-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+.message-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+@media screen and (max-width: 900px) {
+    .menu-btn {
+        width: 80px;
+        height: 80px;
+    }
+    .swiper {
+        width: 100vw;
+        transform: translateX(0);
+    }
+    .mainvisual {
+        display: flex;
+        flex-direction: column;
+    }
+    .mainvisual-message {
+        position: unset;
+    }
+    #item01 {
+        order: 2;
+    }
+    #item02 {
+        order: 1;
+    }
+    .mainvisual-message p {
+        font-size: 28px;
+    }
+    .mainvisual-btn {
+        width: 90vw;
+        text-align: center;
+    }
+    .mainvisual-btn p {
+        text-align: center;
+    }
+    .student-word img:nth-of-type(2) {
+        display: block;
+        transform: translateY(10%);
+    }
+    .student-word img:nth-of-type(1) {
+        display: none;
+    }
+    .SC-message {
+        display: flex;
+        flex-direction: column;
+    }
+    #item-up {
+        order: 2;
+    }
+    #item-down {
+        order: 1;
+    }
+    .student-word {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 100vw;
+    }
+    .student-word p {
+        max-width: 100vw;
+    }
+    .TC-messages-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .TC-messages-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .main-footer {
+        text-align: center;
+    }
+    .main-footer h2 {
+        font-size: 24px;
+    }
+    .main-footer h3 {
+        font-size: 16px;
+    }
+    .main-footer button {
+        padding: 15px 14.3%;
+    }
+    .message-top {
+        display: flex;
+        justify-content: space-between;
+    }
+    .message-bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer-top {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-message {
+        max-width: 50vw;
+        width: 100%;
+    }
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="destyle.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="#"><img src="img/logo-r.svg" alt="logo-r" class="logo-r"></a>
+        <div class="hamburger-menu">
+            <input type="checkbox" id="menu-btn-check">
+            <label for="menu-btn-check" class="menu-btn"><span></span></label>
+            <div class="menu-content">
+                <img src="img/logo-w.svg" alt="logo-w">
+                <ul>
+                    <li><a href="">BBBが選ばれる理由</a></li>
+                    <li><a href="">受講生の声</a></li>
+                    <li><a href="">スクールの概要</a></li>
+                </ul>
+                <button class="free-tex"><p>無料体験に申し込む</p></button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="mainvisual">
+            <div class="mainvisual-message" id="item01">
+                <p>話して学ぼう！</p>
+                <p>BBB英会話スクール</p>
+                <button class="mainvisual-btn"><p>無料体験はこちら</p></button>
+            </div>
+            <div class="swiper mySwiper" id="item02">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/mainvisual1.jpg" alt="mainvisual1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/mainvisual2.jpg" alt="mainvisual2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/mainvisual3.jpg" alt="mainvisual3">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="first-container">
+            <div class="container-header">
+                <h2>BBBが選ばれる理由</h2>
+                <img src="img/線 57.png" alt="line">
+            </div>
+            <div class="FC-messages">
+                <div class="FC-message-top FC-message" data-aos="fade-right">
+                    <img src="img/icon-pc.png" alt="PC">
+                    <div>
+                        <h3>オンライン対応</h3>
+                        <p>24時間いつでも受講できる！</p>
+                    </div>
+                </div>
+                <div class="FC-message-bottom FC-message" data-aos="fade-left">
+                    <img src="img/icon-teacher.png" alt="teacher">
+                    <div>
+                        <h3>講師はネイティブ</h3>
+                        <p>お気に入りの講師が自由に選べる！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="second-container">
+            <div class="container-header">
+                <h2>受講生の声</h2>
+                <img src="img/線 57.png" alt="line">
+            </div>
+            <div class="SC-messages">
+                <div class="SC-messages-top SC-message" data-aos="zoom-in">
+                    <div class="student-photo" id="item-up">
+                        <img src="img/icon-student1.png" alt="icon-student1">
+                        <p>○○○さん</p>
+                        <p>大学生</p>
+                    </div>
+                    <div class="student-word" id="item-down">
+                        <img src="img/多角形left.png" alt="左">
+                        <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                        <img src="img/多角形down.png" alt="下">
+                    </div>
+                </div>
+                <div class="SC-messages-mid SC-message" data-aos="zoom-in">
+                    <div class="student-word">
+                        <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                        <img src="img/多角形right.png" alt="右">
+                        <img src="img/多角形down.png" alt="下">
+                    </div>
+                    <div class="student-photo">
+                        <img src="img/icon-student2.png" alt="icon-student2">
+                        <p>○○○さん</p>
+                        <p>会社員</p>
+                    </div>
+                </div>
+                <div class="SC-messages-bottom SC-message" data-aos="zoom-in">
+                    <div class="student-photo" id="item-up">
+                        <img src="img/icon-student3.png" alt="icon-student3">
+                        <p>○○○さん</p>
+                        <p>自営業</p>
+                    </div>
+                    <div class="student-word" id="item-down">
+                        <img src="img/多角形left.png" alt="左">
+                        <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                        <img src="img/多角形down.png" alt="下">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="third-container">
+            <div class="container-header">
+                <h2>スクールの概要</h2>
+                <img src="img/線 57.png" alt="line">
+            </div>
+            <div class="TC-message">
+                <div class="TC-messages-top">
+                    <div class="TC-text">
+                        <h3>レッスン内容</h3>
+                        <h4>LESSON</h4>
+                        <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                    </div>
+                    <div class="TC-text">
+                        <h3>料金プラン</h3>
+                        <h4>PRICE</h4>
+                        <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                    </div>
+                </div>
+                <div class="TC-messages-bottom">
+                    <div class="TC-text">
+                        <h3>講師のご紹介</h3>
+                        <h4>TEACHER</h4>
+                        <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                    </div>
+                    <div class="TC-text">
+                        <h3>BBBのQ&A</h3>
+                        <h4>Q&A</h4>
+                        <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer">
+            <h2>まずは無料で、BBBの英会話を試してみませんか？</h2>
+            <h3>今なら初月のレッスンを特別価格で受講できる割引クーポンをプレゼント！</h3>
+            <button>無料体験に申し込む</button>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-top">
+            <div class="message-top">
+                <div class="footer-message">
+                    <h4>コース一覧</h4>
+                    <ul>
+                        <li><a href="">スタンダードプラン</a></li>
+                        <li><a href="">プレミアムプラン</a></li>
+                        <li><a href="">短期集中プラン</a></li>
+                        <li><a href="">日常英会話コース</a></li>
+                        <li><a href="">ビジネス英会話コース</a></li>
+                    </ul>
+                </div>
+                <div class="footer-message">
+                    <h4>講師紹介</h4>
+                    <ul>
+                        <li><a href="">講師について</a></li>
+                        <li><a href="">講師一覧</a></li>
+                        <li><a href="">講師を探す</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="message-bottom">
+                <div class="footer-message">
+                    <h4>会社情報</h4>
+                    <ul>
+                        <li><a href="">会社概要</a></li>
+                        <li><a href="">採用情報</a></li>
+                    </ul>
+                </div>
+                <div class="footer-message">
+                    <h4>BBBについて</h4>
+                    <ul>
+                        <li><a href="">よくあるご質問</a></li>
+                        <li><a href="">ご利用規約</a></li>
+                        <li><a href="">プライバシーポリシー</a></li>
+                        <li><a href="">お問い合わせ</a></li>
+                    </ul>
+                </div>
+    
+            </div>
+        </div>
+        <p>© BBB English School</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
